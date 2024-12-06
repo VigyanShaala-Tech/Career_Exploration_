@@ -349,7 +349,9 @@ def add_detail(self, detail, separator="\n"):
 
 # URL pointing to the CSV file
 
-file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/Job_S3.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svSm9iX1MzLnhsc3giLCJpYXQiOjE3MzM0ODkwNjQsImV4cCI6MTczNDA5Mzg2NH0.4Ahet5Cs_9KX2s7QPPqt3nrTdBAfWeduGLP-p1EhSCk&t=2024-12-06T12%3A44%3A23.319Z'
+# URL pointing to the CSV file
+file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/Job_S3.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svSm9iX1MzLnhsc3giLCJpYXQiOjE3MzM0OTAxMDgsImV4cCI6MTczNDA5NDkwOH0.gsTSxRZyFFGtCl0Ih5jg7YBuB15gpPU2s9NypptuEiE&t=2024-12-06T13%3A01%3A47.484Z'
+# Make a GET request to the URL to retrieve the CSV file
 try:
     response = requests.get(file_url)
     response.raise_for_status()  # Raise an error for bad status codes
@@ -361,6 +363,7 @@ except requests.exceptions.RequestException as e:
     print("An error occurred while accessing the CSV file:", e)
 except Exception as e:
     print("An error occurred while reading the CSV file:", e)
+
 
 
 #dp.head()
