@@ -365,7 +365,6 @@ except Exception as e:
     print("An error occurred while reading the CSV file:", e)
 
 
-dp = pd.read_csv(BytesIO(response.content), encoding='latin1')
 #dp.head()
 
 @st.cache_resource
