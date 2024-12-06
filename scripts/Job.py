@@ -13,6 +13,8 @@ import requests
 import PIL.Image as Image
 
 
+
+
 class PDF(FPDF,HTMLMixin):
     def __init__(self, width, height):
         super().__init__('P', 'mm', (width, height))
@@ -347,7 +349,7 @@ def add_detail(self, detail, separator="\n"):
 
 # URL pointing to the CSV file
 
-file_url = 'https://bvvaailuzioczysisnoc.supabase.co/storage/v1/object/sign/Career%20Exploration/Job_S3(Sheet1).csv?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vSm9iX1MzKFNoZWV0MSkuY3N2IiwiaWF0IjoxNzIxMDIxODQyLCJleHAiOjE4MDczMzU0NDJ9.jgGMn3UXqD5W_NJAK1OKOQ7DLLLEVnA56c3Bo912Gk4&t=2024-07-15T05%3A37%3A20.755Z'
+file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/Job_S3.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svSm9iX1MzLnhsc3giLCJpYXQiOjE3MzMzNzUyNzMsImV4cCI6MTczNTk2NzI3M30.veRGndqjMmpfng5_iyBXCMZ9tQ2c5AsbaEn8JEEXwVA&t=2024-12-05T05%3A07%3A52.181Z'
 try:
     response = requests.get(file_url)
     response.raise_for_status()  # Raise an error for bad status codes
@@ -361,7 +363,7 @@ except Exception as e:
     print("An error occurred while reading the CSV file:", e)
 
 
-dp.head()
+#dp.head()
 
 @st.cache_resource
 def load_job_details(selected_field):
@@ -428,7 +430,7 @@ def main():
         # Load the data from Excel into a DataFrame
         #df= load_sco_details()
         # URL pointing to the CSV file
-        file_url = 'https://bvvaailuzioczysisnoc.supabase.co/storage/v1/object/sign/Career%20Exploration/Scholarship_S3(Sheet1).csv?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vU2Nob2xhcnNoaXBfUzMoU2hlZXQxKS5jc3YiLCJpYXQiOjE3MjEwMjE5MjUsImV4cCI6MTgwNzMzNTUyNX0.O4WbfKxjwoGwS7YeJ6QVuY7PWJ1AQHSttfBPgozkrE8&t=2024-07-15T05%3A38%3A43.457Z'
+        file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/Scholarship_S3.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svU2Nob2xhcnNoaXBfUzMueGxzeCIsImlhdCI6MTczMzM3NTEwMSwiZXhwIjoxNzM1OTY3MTAxfQ.mYvlK69fvUutvvASSaH9Ool1BqpIdVHTuoK4UPOgmRc&t=2024-12-05T05%3A05%3A00.129Z'
         try:
             response = requests.get(file_url)
             response.raise_for_status()  # Raise an error for bad status codes
