@@ -349,7 +349,7 @@ def add_detail(self, detail, separator="\n"):
 
 # URL pointing to the CSV file
 
-file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/Job_S3.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svSm9iX1MzLnhsc3giLCJpYXQiOjE3MzMzNzUyNzMsImV4cCI6MTczNTk2NzI3M30.veRGndqjMmpfng5_iyBXCMZ9tQ2c5AsbaEn8JEEXwVA&t=2024-12-05T05%3A07%3A52.181Z'
+file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/Job_S3.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svSm9iX1MzLnhsc3giLCJpYXQiOjE3MzM0ODkwNjQsImV4cCI6MTczNDA5Mzg2NH0.4Ahet5Cs_9KX2s7QPPqt3nrTdBAfWeduGLP-p1EhSCk&t=2024-12-06T12%3A44%3A23.319Z'
 try:
     response = requests.get(file_url)
     response.raise_for_status()  # Raise an error for bad status codes
