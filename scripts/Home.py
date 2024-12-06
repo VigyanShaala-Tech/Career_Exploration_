@@ -4,13 +4,13 @@ import requests
 from io import BytesIO
 
 # URL pointing to the Excel file
-file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/STEM%20Colleges%20in%20India%20Dataset.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svU1RFTSBDb2xsZWdlcyBpbiBJbmRpYSBEYXRhc2V0Lnhsc3giLCJpYXQiOjE3MzMzNzU0NTYsImV4cCI6MTczNTk2NzQ1Nn0.wsf_IVhS7PpfvkLg15RvmYKo8P3sPKZPx56UWB0Fm-E&t=2024-12-05T05%3A10%3A55.478Z'
+file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/College_S3.csv?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svQ29sbGVnZV9TMy5jc3YiLCJpYXQiOjE3MzM0ODc5MzgsImV4cCI6MTczNDA5MjczOH0.JBAQYCBYr8ZWSWswS8IFRlD3nPFoTXlup9Nj-nXr8Ww&t=2024-12-06T12%3A25%3A36.839Z'
 
 # Function to fetch CSV from Supabase storage
 def fetch_csv_from_supabase():
     try:
         # Get the file from Supabase (replace 'your-bucket-name' and 'your-file-name.csv')
-        file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/STEM%20Colleges%20in%20India%20Dataset.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svU1RFTSBDb2xsZWdlcyBpbiBJbmRpYSBEYXRhc2V0Lnhsc3giLCJpYXQiOjE3MzMzNzU0NTYsImV4cCI6MTczNTk2NzQ1Nn0.wsf_IVhS7PpfvkLg15RvmYKo8P3sPKZPx56UWB0Fm-E&t=2024-12-05T05%3A10%3A55.478Z'
+        file_url = 'https://twetkfnfqdtsozephdse.supabase.co/storage/v1/object/sign/stemcheck/College_S3.csv?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzdGVtY2hlY2svQ29sbGVnZV9TMy5jc3YiLCJpYXQiOjE3MzM0ODc5MzgsImV4cCI6MTczNDA5MjczOH0.JBAQYCBYr8ZWSWswS8IFRlD3nPFoTXlup9Nj-nXr8Ww&t=2024-12-06T12%3A25%3A36.839Z'
 
         if file_url:
             # If the file is successfully fetched, read it into a DataFrame
