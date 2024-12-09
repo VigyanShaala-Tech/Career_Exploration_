@@ -297,7 +297,7 @@ except Exception as e:
     print("An error occurred while reading the CSV file:", e)
 #dp = pd.read_excel(r"C:\Users\User\Desktop\Career-Exploration-main\data_files\Job_S3.xlsx")
 #dp = load_job_details()
-dp.head()
+#dp.head()
 @st.cache_resource
 def load_job_details(selected_field):
     filtered_job_titles = dp[dp['Field'] == selected_field]['Job Titles'].unique()
