@@ -1,7 +1,4 @@
 #%pip install fpdf2
-
-
-
 import io
 import tempfile
 from io import BytesIO
