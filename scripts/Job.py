@@ -13,6 +13,8 @@ import requests
 import PIL.Image as Image
 
 
+
+
 class PDF(FPDF,HTMLMixin):
     def __init__(self, width, height):
         super().__init__('P', 'mm', (width, height))
@@ -38,7 +40,7 @@ class PDF(FPDF,HTMLMixin):
             return img
 
 # URL of the image from Supabase
-        image_url = "https://bvvaailuzioczysisnoc.supabase.co/storage/v1/object/sign/Career%20Exploration/VS_logo.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vVlNfbG9nby5wbmciLCJpYXQiOjE3MjExMzA2MjgsImV4cCI6MTc1MjY2NjYyOH0.Q99ULCs2XuekjCCBgDzM1VKDRfkqxiaT9n8xi-7_RkY&t=2024-07-16T11%3A50%3A25.744Z"
+        image_url = "https://jyrdwnpjlcznlvqxmthc.supabase.co/storage/v1/object/sign/Career%20Exploration/VS-logo.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vVlMtbG9nby5wbmciLCJpYXQiOjE3MzM3MTUwOTQsImV4cCI6MTczNDMxOTg5NH0.gtfDA2Hhzeu12q9j4Ee8maC6jMLvFicS0O9xwdToXn8&t=2024-12-09T03%3A31%3A28.858Z"
 
 # Load the image from the URL
         img = get_image_from_url(image_url)
@@ -51,7 +53,7 @@ class PDF(FPDF,HTMLMixin):
             return img
 
 # URL of the image from Supabase
-        image_url = "https://bvvaailuzioczysisnoc.supabase.co/storage/v1/object/sign/Career%20Exploration/Watermark.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vV2F0ZXJtYXJrLnBuZyIsImlhdCI6MTcyMTEzMDk1OSwiZXhwIjoxNzUyNjY2OTU5fQ.J8G-AXUdf6YY8ir2e7Nmmwpeisin1zBoM9KgBrmAJyE&t=2024-07-16T11%3A55%3A56.778Z"
+        image_url = "https://jyrdwnpjlcznlvqxmthc.supabase.co/storage/v1/object/sign/Career%20Exploration/Watermark.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vV2F0ZXJtYXJrLnBuZyIsImlhdCI6MTczMzcxNTEyMiwiZXhwIjoxNzM0MzE5OTIyfQ.nO6QFtU94xh6B8K5J-MAYUvS4hHJwjfm46BpHEhod1o&t=2024-12-09T03%3A31%3A57.073Z"
 
 # Load the image from the URL
         bg_image = get_image_from_url(image_url)
@@ -340,280 +342,183 @@ def add_detail(self, detail, separator="\n"):
     self.cell(0, 2, separator, ln=True)
 
 # Load the Excel file into a pandas DataFrame
-# Load the Excel file into a pandas DataFrame
-
-
-
 
 # URL pointing to the CSV file
 
-file_url = 'https://bvvaailuzioczysisnoc.supabase.co/storage/v1/object/sign/Career%20Exploration/Job_S3(Sheet1).csv?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vSm9iX1MzKFNoZWV0MSkuY3N2IiwiaWF0IjoxNzIxMDIxODQyLCJleHAiOjE4MDczMzU0NDJ9.jgGMn3UXqD5W_NJAK1OKOQ7DLLLEVnA56c3Bo912Gk4&t=2024-07-15T05%3A37%3A20.755Z'
-try:
-    response = requests.get(file_url)
-    response.raise_for_status()  # Raise an error for bad status codes
-
-    # Read the content of the response as a pandas DataFrame, specifying the appropriate encoding
-    dp = pd.read_csv(BytesIO(response.content), encoding='latin1')  # You can try 'latin1' encoding as an alternative
-    # Proceed with processing the data in the dataframe 'df'
-except requests.exceptions.RequestException as e:
-    print("An error occurred while accessing the CSV file:", e)
-except Exception as e:
-    print("An error occurred while reading the CSV file:", e)
-
-
-dp.head()
+# Load the Excel file into a pandas DataFrame
+# Define file URLs for Supabase storage
+job_file_url = "https://jyrdwnpjlcznlvqxmthc.supabase.co/storage/v1/object/sign/Career%20Exploration/Job_S3.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vSm9iX1MzLnhsc3giLCJpYXQiOjE3MzM1MTI3MjAsImV4cCI6MTczNDExNzUyMH0.zQfwABwUJtnA41UQ_Q8L8YbYZkBfGfxsiM5iXHbQ5fo&t=2024-12-06T19%3A18%3A41.253Z"
+scholarship_file_url = "https://jyrdwnpjlcznlvqxmthc.supabase.co/storage/v1/object/sign/Career%20Exploration/Scholarship_S3.xlsx?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vU2Nob2xhcnNoaXBfUzMueGxzeCIsImlhdCI6MTczMzUxMjc0MywiZXhwIjoxNzM0MTE3NTQzfQ.JzGv8Mub-PS_GJKOVUyZMj7NS_oGRofX6wlJodoX9EI&t=2024-12-06T19%3A19%3A03.629Z"
 
 @st.cache_resource
-def load_job_details(selected_field):
-    filtered_job_titles = dp[dp['Field'] == selected_field]['Job Titles'].unique()
-    return filtered_job_titles
+def load_excel_from_url(file_url):
+    """Load an Excel file from a given URL."""
+    try:
+        response = requests.get(file_url)
+        response.raise_for_status()
+        return pd.read_excel(BytesIO(response.content))
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error fetching the file: {e}")
+        return pd.DataFrame()
 
+@st.cache_resource
+def filter_job_titles(df, selected_field):
+    """Filter job titles based on the selected field."""
+    if df.empty:
+        return []
+    return df[df["Field"] == selected_field]["Job Titles"].unique()
+
+class PDF(FPDF):
+    """Custom PDF class for generating formatted PDFs."""
+    
+    def add_title(self, title):
+        self.set_font("Arial", "B", 16)
+        self.cell(0, 10, title, ln=True, align="C")
+        self.ln(10)
+    
+    def add_section(self, heading, content_list):
+        self.set_font("Arial", "B", 12)
+        self.cell(0, 10, heading, ln=True)
+        self.set_font("Arial", "", 11)
+        for item in content_list:
+            self.multi_cell(0, 10, item)
+        self.ln(5)
+    
+    def add_bold_text(self, text):
+        self.set_font("Arial", "B", 11)
+        self.multi_cell(0, 10, text)
+    
+    def add_scholarship_details_title(self):
+        self.add_title("Scholarship Details")
+    
+    def add_scholarship_details(self, name, details):
+        self.add_bold_text(f"Scholarship Name: {name}")
+        for key, value in details.items():
+            self.multi_cell(0, 8, f"{key}: {value}")
+        self.ln(5)
 
 def clean_text(text):
+    """Clean text to handle non-Latin-1 characters."""
     try:
-        return text.encode('latin-1', 'replace').decode('latin-1')
+        return text.encode("latin-1", "replace").decode("latin-1")
     except UnicodeEncodeError:
         return "[Non-Latin-1 Character]"
-    
 
 def main():
-    st.title('Job Details Report')
+    st.title("Job and Scholarship Details Report")
 
-    selected_field = st.session_state.selected_field
-    filtered_job_titles = load_job_details(selected_field)
+    # Load data from Supabase URLs
+    job_df = load_excel_from_url(job_file_url)
+    scholarship_df = load_excel_from_url(scholarship_file_url)
 
-    if len(filtered_job_titles) == 0:
-        st.error(f"No job titles found for the selected field: **{selected_field}**")
-        st.error("*Please choose a different field and job title below:*")
+    if job_df.empty or scholarship_df.empty:
+        st.error("Failed to load job or scholarship details. Please try again later.")
+        return
 
-        fields = sorted(list(dp['Field'].unique()))  # Sort the fields
-        fields.insert(0, 'Select a field')  # Add a default option
+    # Select a field
+    fields = sorted(job_df["Field"].unique())
+    selected_field = st.selectbox("Select Field", options=["Select a field"] + fields)
 
-        selected_field = st.selectbox('**Select Field**', fields)
-        if selected_field == 'Select a field':
-            st.warning("Please select a field.")
-            return
+    if selected_field == "Select a field":
+        st.warning("Please select a valid field.")
+        return
 
-        #st.session_state.selected_field = selected_field
+    # Filter job titles
+    filtered_job_titles = filter_job_titles(job_df, selected_field)
+    selected_job_title = st.selectbox("Select Job Title", options=["Select a job title"] + list(filtered_job_titles))
 
-        filtered_job_titles = load_job_details(selected_field)
+    if selected_job_title == "Select a job title":
+        st.warning("Please select a valid job title.")
+        return
+
+    # Display job details
+    job_details = job_df[(job_df["Field"] == selected_field) & (job_df["Job Titles"] == selected_job_title)]
+    st.header("Job Details")
+    st.markdown(f"**Field:** {selected_field}")
+    st.markdown(f"**Job Title:** {selected_job_title}")
+    st.markdown(f"**Job Description:** {job_details['Job Description'].values[0]}")
+    st.markdown(f"**Work Environment:** {job_details['Work Environment'].values[0]}")
+    st.markdown(f"**Key Competency:** {job_details['Key Competancy'].values[0]}")
+
+    # Filter scholarships
+    scholarships = scholarship_df[scholarship_df["Field"] == selected_field]
+
+    # Generate PDF using the custom PDF class
+    pdf = PDF()  # Use the custom PDF class
+    pdf.add_page()
+
+    # Add title
+    pdf.add_title("Progress Report")
+    pdf.set_left_margin(20)  # Adjust the left margin (default is 10 mm)
+    pdf.set_right_margin(20)  
+
+    # Set font 
+    pdf.set_font("Arial", "B", 14)
+
+
+    # Add college details
+    #pdf.add_college_details_title()
+
+    # Add college content
+    college_content = [
+        f"Student Name: {st.session_state.student_name}",
+        f"Qualified Degree: {st.session_state.selected_degree}",
+        f"Field: {st.session_state.selected_field}",
+        f"Subfield: {st.session_state.selected_subfield}",
+        f"College: {st.session_state.selected_college}",
+        f"Duration: {st.session_state.college_details['DURATION'].values[0]}",
+        f"College Fee: {st.session_state.college_details['COLLEGE FEE'].values[0]}",
         
-        # Use len() to check if the array is empty
-        if len(filtered_job_titles) == 0:
-            filtered_job_titles = ['Select a job title']  # Add a default option
-        else:
-            filtered_job_titles = sorted(filtered_job_titles)  # Sort the job titles
+    ]
+    pdf.add_section("College Details", college_content)
 
-        selected_job_title = st.selectbox('**Select Job Title**', filtered_job_titles)
-    else:
-        selected_job_title = st.selectbox('**Select Job Title**', sorted(filtered_job_titles))  # Sort the job titles
+    # Add separator line
+    pdf.line(pdf.l_margin, pdf.get_y(), pdf.w - pdf.r_margin, pdf.get_y())
+    pdf.ln(10)  # Add space after the separator line
 
-    if selected_job_title:
-        job_details = dp[(dp['Field'] == selected_field) & (dp['Job Titles'] == selected_job_title)]
-
-        st.header('Job Details')
-        st.markdown(f"**Field:** {selected_field}")
-        st.markdown(f"**Job Title:** {selected_job_title}")
-        st.markdown(f"**Job Description:** {job_details['Job Description'].values[0]}")
-        st.markdown(f"**Work Environment:** {job_details['Work Environment'].values[0]}")
-       # st.markdown(f"**Women Role Models**: {st.session_state.college_details['Women role models'].values[0]}")
-        st.markdown(f"**Key Competency:** {job_details['Key Competancy'].values[0]}")
-        st.markdown(f"**Available Skill Training Schemes:** {job_details['Available skill training schemes'].values[0]}")
-        st.markdown(f"**Sample Training & Courses:** {job_details['Sample training & courses'].values[0]}")
-        st.markdown(f"**Career Path Progression:** {job_details['Career path progression'].values[0]}")
-        st.markdown(f"**Probable Employers:** {job_details['Probable Employers'].values[0]}")
-        #st.markdown(f"**Salary:** {job_details['Salary'].values[0]}")
-        
-
-        # Load the data from Excel into a DataFrame
-        #df= load_sco_details()
-        # URL pointing to the CSV file
-        file_url = 'https://bvvaailuzioczysisnoc.supabase.co/storage/v1/object/sign/Career%20Exploration/Scholarship_S3(Sheet1).csv?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJDYXJlZXIgRXhwbG9yYXRpb24vU2Nob2xhcnNoaXBfUzMoU2hlZXQxKS5jc3YiLCJpYXQiOjE3MjEwMjE5MjUsImV4cCI6MTgwNzMzNTUyNX0.O4WbfKxjwoGwS7YeJ6QVuY7PWJ1AQHSttfBPgozkrE8&t=2024-07-15T05%3A38%3A43.457Z'
-        try:
-            response = requests.get(file_url)
-            response.raise_for_status()  # Raise an error for bad status codes
-
-        # Read the content of the response as a pandas DataFrame, specifying the appropriate encoding
-            df = pd.read_csv(BytesIO(response.content), encoding='latin1')  # You can try 'latin1' encoding as an alternative
-    # Proceed with processing the data in the dataframe 'df'
-        except requests.exceptions.RequestException as e:
-            print("An error occurred while accessing the CSV file:", e)
-        except Exception as e:
-            print("An error occurred while reading the CSV file:", e)
-
-        #df = pd.read_excel(r"C:\Users\User\Desktop\Career-Exploration-main\data_files\Scholarship_S3.xlsx")
-
-        # Filter the DataFrame to only include rows where Field is 'Science'
-        df_science = df[df['Field'] == 'Science']
-
-        # Filter the DataFrame for the selected field
-        df_selected = df[df['Field'] == selected_field]
-
-        # Concatenate the df_science and df_selected DataFrames
-        df_concat = pd.concat([df_science, df_selected])
-
-        # Create a PDF object
-        pdf = PDF(210, 297)
-        # Add a page
-        pdf.add_page()
-        pdf.set_left_margin(20)  # Adjust the left margin (default is 10 mm)
-        pdf.set_right_margin(20)  
-
-        # Set font 
-        pdf.set_font("Arial", "B", 14)
-
-        # Add title
-        pdf.add_college_details_title()
-
-        # Add content
-        college_content = [
-            f"Student Name: {st.session_state.student_name}",
-            f"Qualified Degree: {st.session_state.selected_degree}",
-            f"Field: {st.session_state.selected_field}",
-            f"Subfield: {st.session_state.selected_subfield}",
-            f"College: {st.session_state.selected_college}",
-            f"Duration: {st.session_state.college_details['Duration'].values[0]}",
-            f"College Fee: {st.session_state.college_details['Fees'].values[0]}"
-            #f"Application process: {st.session_state.college_details['Application process'].values[0]}",
-            #f"Application deadline: {st.session_state.college_details['Application deadline'].values[0]}",
-            #f"NIRF and Other Rank (2022): {st.session_state.college_details['NIRF AND OTHER RANK(2022)'].values[0]}",
-            #f"Minimum Marks for Eligibility: {st.session_state.college_details['MIN MARKS FOR ELIGIBILITY'].values[0]}",
-            #f"Entrance Name and Duration: {st.session_state.college_details['ENTRANCE NAME AND DURATION'].values[0]}",
-            #f"Exam Details: {st.session_state.college_details['EXAM DETAILS'].values[0]}",
-            #f"Test Date: {st.session_state.college_details['TEST DATE'].values[0]}",
-            #f"Application Process: {st.session_state.college_details['Application process'].values[0]}",
-            #f"Application Fee: {st.session_state.college_details['APPLICATION FEE'].values[0]}",
-            #f"Selection Process: {st.session_state.college_details['Selection Process'].values[0]}",
-            #f"Intake: {st.session_state.college_details['INTAKE'].values[0]}",
-            #f"Link: {st.session_state.college_details['LINK'].values[0]}",
-            #f"Award amount: {st.session_state.college_details['Award amount'].values[0]}",
-            #f"Things covered by the award: {st.session_state.college_details['Things covered by the award'].values[0]}",
-            #f"Contact website: {st.session_state.college_details['Contact website'].values[0]}",
-            #f"Scholarships for this College: {st.session_state.college_details['Scholarship Name'].values[0]}"
-        ]
-
-       # Add college content to the PDF
-        for line in college_content:
-            # Replace non-latin-1 characters
-            line_cleaned = line.encode('latin-1', 'replace').decode('latin-1')
-            add_detail(pdf, line_cleaned)
-
-        # Draw a separator line after college content
-        pdf.line(pdf.l_margin, pdf.get_y(), pdf.w - pdf.r_margin, pdf.get_y())
-        pdf.ln(10) # Add space after the separator line
-
-         # Set font 
-        pdf.set_font("Arial", "B", 14)
-
-        # Add title
-        pdf.add_job_details_title()
-
-        # Add content
-        job_content = [
-            f"Job Title: {selected_job_title}",
-            f"Job Description: {job_details['Job Description'].values[0]}",
-            f"Work Environment: {job_details['Work Environment'].values[0]}",
-           # f"Women Role Models: {st.session_state.college_details['Women role models'].values[0]}"
-            f"Key Competancy: {job_details['Key Competancy'].values[0]}",
-            f"Available Skill Training Schemes: {job_details['Available skill training schemes'].values[0]}",
-            f"Sample Training & Courses: {job_details['Sample training & courses'].values[0]}",
-            f"Career Path Progression: {job_details['Career path progression'].values[0]}",
-            f"Probable Employers: {job_details['Probable Employers'].values[0]}",
-           # f"Salary: {job_details['Salary'].values[0]}"
-        ]
+    pdf.set_font("Arial", "B", 14)
 
 
-        # Add job content to the PDF
-        for line in job_content:
-            # Replace non-latin-1 characters
-            line_cleaned = line.encode('latin-1', 'replace').decode('latin-1')
-            add_detail(pdf, line_cleaned)
+    # Add job details
+    job_content = [
+        f"Job Title: {selected_job_title}",
+        f"Job Description: {job_details['Job Description'].values[0]}",
+        f"Work Environment: {job_details['Work Environment'].values[0]}",
+        f"Key Competancy: {job_details['Key Competancy'].values[0]}",
+        f"Available Skill Training Schemes: {job_details['Available skill training schemes'].values[0]}",
+        f"Sample Training & Courses: {job_details['Sample training & courses'].values[0]}",
+        f"Career Path Progression: {job_details['Career path progression'].values[0]}",
+        f"Probable Employers: {job_details['Probable Employers'].values[0]}",
+    ]
+    pdf.add_section("Job Details", job_content)
+
+    # Draw a separator line after job content
+    pdf.line(pdf.l_margin, pdf.get_y(), pdf.w - pdf.r_margin, pdf.get_y())
+    pdf.ln(10)
             
-        # Draw a separator line after job content
-        pdf.line(pdf.l_margin, pdf.get_y(), pdf.w - pdf.r_margin, pdf.get_y())
-        pdf.ln(10)
-            
-        # Set font for the "Scholarship Details" section to bold
-        pdf.set_font("Arial", "B", 14)
+    # Set font for the "Scholarship Details" section to bold
+    pdf.set_font("Arial", "B", 14)
 
-        # Initialize a flag to check if the scholarship details title has been printed
-        printed_title = False
-        
-        # Group scholarship details by 'Scholarship Name' and loop through each group
-        grouped_scholarships = df_concat.groupby('Scholarship Name')
-        bullet_counter = 1  # Initialize the bullet counter
-        
-        for scholarship_name, scholarship_group in grouped_scholarships:
-            # Check if the selected degree matches the degree in the scholarship details
-            if st.session_state.selected_degree == 'Masters':
+    # Add scholarship details
+    if not scholarships.empty:
+        pdf.add_scholarship_details_title()
+        for _, row in scholarships.iterrows():
+            details = {
+                "Scholarship name":row["Scholarship Name"],
+                "Offered by": row["Offered by"],
+                "Govt./Private": row["Govt./Private"],
+                "Eligibility Criteria":row["Eligibility criteria"],
+                "Award Amount": row["Award amount"],
+                "Things covered by the award":row["Things covered by the award"],
+                "Application Deadline": row["Application deadline"],
+            }
+            pdf.add_scholarship_details(row["Scholarship Name"], details)
 
-                # Only add the scholarship details title once
-                if not printed_title:
-                    pdf.add_scholarship_details_title()
-                    printed_title = True
-                    
-                # Add scholarship name with bullet point to the PDF
-                bullet_text = f"{bullet_counter}. Scholarship Name: {scholarship_name}"
-                pdf.add_bold_text(bullet_text)
-            
-                # Add scholarship tables to the PDF
-                pdf.add_scholarship_offered_by_table(scholarship_group[['Offered by', 'Govt./Private', 'For study in']].values)
-                pdf.add_scholarship_duration_table(scholarship_group[['Duration', 'Award amount', 'Application deadline']].values)
-            
-                # Add a gap after the scholarship table
-                pdf.ln(5)  # Adjust the gap size as needed
-
-                # Create a dictionary with scholarship details for printing
-                scholarship_details = scholarship_group.iloc[0].to_dict()
-                scholarship_details.pop('Degree', None)
-                scholarship_details.pop('Field', None)
-                scholarship_details.pop('Subfield', None)
-                scholarship_details.pop('Scholarship Name', None)
-                scholarship_details.pop('Offered by', None)
-                scholarship_details.pop('Govt./Private', None)
-                scholarship_details.pop('For study in', None)
-                scholarship_details.pop('Duration', None)
-                scholarship_details.pop('Award amount', None)
-                scholarship_details.pop('Application deadline', None)
-
-                # Add scholarship details to the PDF
-                pdf.add_scholarship_details(scholarship_name, scholarship_details)
-
-                # Additional space after scholarship details
-                pdf.ln(5)
-
-                # Increment the bullet counter for the next scholarship
-                bullet_counter += 1
-                
-            
-    try:
-        # Generate the PDF document
-        pdf_output = pdf.output(dest="S")
-        
-        # Check if the PDF output is not empty
-        if pdf_output:
-            # Convert the bytearray to bytes
-            pdf_bytes = bytes(pdf_output)
-
-            # Encode the bytes as base64
-            pdf_base64 = base64.b64encode(pdf_bytes).decode('utf-8')
-
-            # Display the download button
-            st.markdown(
-                f'<a href="data:application/pdf;base64,{pdf_base64}" download="{st.session_state.student_name}_progress_report.pdf">Download PDF</a>',
-                unsafe_allow_html=True
-            )
-        else:
-            st.error("PDF output is empty. Please check the PDF generation process.")
-
-    except Exception as e:
-        st.error(f"Error occurred during PDF generation: {e}")
-
-
-    if st.button('Back'):
-        st.session_state.next_page = False
-        st.experimental_rerun()
-
-
-if __name__ == '__main__':
-    main()
+# Allow PDF download
+    pdf_output = pdf.output(dest="S").replace('\u200b', '').encode("latin1", errors="replace")
+    st.download_button(
+        label="Download PDF",
+        data=pdf_output,
+        file_name=f"{selected_field}_progress_report.pdf",
+        mime="application/pdf",
+    )
