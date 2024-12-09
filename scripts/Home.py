@@ -3,7 +3,7 @@ import streamlit as st
 import boto3
 import io
 from streamlit_option_menu import option_menu
-import Job2  # Import the Job12 module
+import Job  # Import the Job12 module
 from PIL import Image
 import base64
 from io import BytesIO
