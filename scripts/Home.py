@@ -52,7 +52,7 @@ def main():
     st.session_state.filtered_subfields = sorted([i for i in df[(df['Degree'] == st.session_state.selected_degree) & (df['Field'] == st.session_state.selected_field)]['SubField'].unique() if isinstance(i, str)])
     st.session_state.selected_subfield = st.selectbox('**Select Specilization between this Field**', st.session_state.filtered_subfields)
 
-    st.session_state.filtered_colleges = sorted([i for i in df[(df['Degree'] == st.session_state.selected_degree) & (df['Field'] == st.session_state.selected_field) & (df['SubField'] == st.session_state.selected_subfield)]['College_Name'].unique() if isinstance(i, str)])
+    st.session_state.filtered_colleges = sorted([i for i in df[(df['Degree'] == st.session_state.selected_degree) & (df['Field'] == st.session_state.selected_field) & (df['SubField'] == st.session_state.selected_subfield)]['COLLEGE'].unique() if isinstance(i, str)])
     st.session_state.selected_college = st.selectbox('**Select college**', st.session_state.filtered_colleges)
 
     if st.session_state.selected_college:
